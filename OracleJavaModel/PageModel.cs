@@ -4,7 +4,7 @@ namespace OracleJavaModel
 {
     public class PageModel : BindableBase
     {
-        private Page page = Page.Kbs1;
+        private Page page = Page.ViewPanel;
 
         public Page Page
         { 

@@ -17,7 +17,8 @@ namespace OracleJavaViews
 
         public void RegisterTypes(IContainerRegistry containerRegistry)
         {
-
+            containerRegistry.RegisterForNavigation<Views.ViewPanel>();
+            containerRegistry.RegisterForNavigation<Views.ViewCanvas>();
         }
     }
 }

@@ -8,8 +8,8 @@ namespace OracleJavaModel
 {
     public enum Page
     {
-        Kbs1,
-        Kbs2,
+        ViewPanel,
+        ViewCanvas,
         Mbc,
         Sbs
     }

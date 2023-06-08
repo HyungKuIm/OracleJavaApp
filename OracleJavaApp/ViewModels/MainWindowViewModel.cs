@@ -1,5 +1,6 @@
 ﻿using OracleJavaModel;
 using Prism.Mvvm;
+using Prism.Regions;
 using System;
 using System.Collections.ObjectModel;
 using System.Windows;
@@ -29,20 +30,24 @@ namespace OracleJavaApp.ViewModels
             get { return activePage; }
             set { 
                 SetProperty(ref activePage, value);
-                MessageBox.Show("activePage = " + activePage.Page);
+                //MessageBox.Show("activePage = " + activePage.Page);
+                this.regionManager.RequestNavigate("ContentRegion", activePage.Page.ToString());
             }
         }
 
-        public MainWindowViewModel()
+        private IRegionManager regionManager;
+
+        public MainWindowViewModel(IRegionManager regionManager)
         {
             InitializeData();
+            this.regionManager = regionManager;
         }
 
         private void InitializeData()
         {
             pages = new ObservableCollection<PageModel>();
-            pages.Add(new PageModel { Page = Page.Kbs1 });
-            pages.Add(new PageModel { Page = Page.Kbs2 });
+            pages.Add(new PageModel { Page = Page.ViewPanel });
+            pages.Add(new PageModel { Page = Page.ViewCanvas });
             pages.Add(new PageModel { Page = Page.Mbc });
             pages.Add(new PageModel { Page = Page.Sbs });
         }
