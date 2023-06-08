@@ -4,6 +4,19 @@
              xmlns:local="clr-namespace:OracleJavaApp"
              xmlns:prism="http://prismlibrary.com/" >
     <Application.Resources>
-         
+		<ResourceDictionary>
+			
+			<!-- Brushes -->
+            <SolidColorBrush x:Key="OracleJavaBlue" Color="#FF1B478D" />
+
+            <ControlTemplate x:Key="HiddenListBoxTemplate" TargetType="{x:Type ListBox}">
+                <Border BorderThickness="0" BorderBrush="{x:Null}" SnapsToDevicePixels="True" Background="Transparent">
+                    <ScrollViewer VerticalScrollBarVisibility="Auto" HorizontalScrollBarVisibility="Disabled" Focusable="False">
+                        <ItemsPresenter Margin="0" />
+                    </ScrollViewer>
+                </Border>
+            </ControlTemplate>
+
+        </ResourceDictionary>
     </Application.Resources>
 </prism:PrismApplication>

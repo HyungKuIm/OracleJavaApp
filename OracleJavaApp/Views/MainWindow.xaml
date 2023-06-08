@@ -3,7 +3,14 @@
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
         xmlns:prism="http://prismlibrary.com/"
         prism:ViewModelLocator.AutoWireViewModel="True"
-        Title="{Binding Title}" Height="762" Width="1250" >
+        Title="{Binding Title}" Height="762" Width="1250" Background="Black">
+    <Window.Resources>
+        <Style x:Key="TitleStyle" TargetType="{x:Type TextBlock}">
+            <Setter Property="FontSize" Value="27"/>
+            <Setter Property="FontWeight" Value="Bold"/>
+            <Setter Property="Foreground" Value="White"/>
+        </Style>
+    </Window.Resources>
     <Grid>
         <Grid.ColumnDefinitions>
             <ColumnDefinition Width="Auto"/>
@@ -17,21 +24,39 @@
                 <RowDefinition Height="Auto"/>
                 <RowDefinition Height="Auto"/>
             </Grid.RowDefinitions>
-            <TextBlock Text="OracleJava" />
-            <TextBlock Grid.Row="1" Text="Wpf" />
-            <TextBlock Grid.Row="2" Text="Programming" />
-            <TextBlock Grid.Row="3" Text="Sample" />
-            <ListBox Grid.Row="4" ItemsSource="{Binding Pages}"
-                     SelectedItem="{Binding ActivePage}">
+            <TextBlock Text="OracleJava" FontSize="19.5" Foreground="{StaticResource OracleJavaBlue}" Background="White" />
+            <TextBlock Grid.Row="1" Text="Wpf" Style="{StaticResource TitleStyle}"/>
+            <TextBlock Grid.Row="2" Text="Programming" Style="{StaticResource TitleStyle}"/>
+            <TextBlock Grid.Row="3" Text="Sample" Style="{StaticResource TitleStyle}"/>
+            <ListBox Grid.Row="4" ItemsSource="{Binding Pages}" Template="{StaticResource HiddenListBoxTemplate}"
+                     SelectedItem="{Binding ActivePage}" HorizontalContentAlignment="Stretch">
                 <ListBox.ItemTemplate>
                     <DataTemplate>
                         <RadioButton Content="{Binding Page}" GroupName="aa"
                                IsChecked="{Binding IsSelected, 
-                                    RelativeSource={RelativeSource AncestorType={x:Type ListBoxItem}}}"/>
+                                    RelativeSource={RelativeSource AncestorType={x:Type ListBoxItem}}, FallbackValue=False}">
+                            <RadioButton.Template>
+                                <ControlTemplate TargetType="{x:Type RadioButton}">
+                                    <Border x:Name="Border" BorderBrush="White" BorderThickness="2" Background="{StaticResource OracleJavaBlue}" CornerRadius="2">
+                                        <Grid Cursor="Hand">
+                                            <Rectangle Fill="Green" Opacity="0.35" />
+                                            <TextBlock Text="{Binding Page}" Foreground="White" FontWeight="SemiBold" FontSize="14" Margin="5,4.15" />
+                                        </Grid>
+                                    </Border>
+                                    <ControlTemplate.Triggers>
+                                        <DataTrigger Binding="{Binding IsSelected, RelativeSource={RelativeSource AncestorType={x:Type ListBoxItem}}}" Value="True">
+                                            <Setter TargetName="Border" Property="BorderBrush" Value="White"/>
+                                            <Setter TargetName="Border" Property="Background" Value="Black"/>
+                                        </DataTrigger>
+                                    </ControlTemplate.Triggers>
+                                </ControlTemplate>
+                            </RadioButton.Template>
+                        </RadioButton>
                     </DataTemplate>
                 </ListBox.ItemTemplate>
             </ListBox>
         </Grid>
+        <Rectangle Grid.Column="1" Fill="White" />
         <ContentControl Grid.Column="1" prism:RegionManager.RegionName="ContentRegion" />
     </Grid>
 </Window>
