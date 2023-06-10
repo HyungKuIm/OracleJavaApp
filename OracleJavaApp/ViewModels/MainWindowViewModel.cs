@@ -50,6 +50,10 @@ namespace OracleJavaApp.ViewModels
             pages.Add(new PageModel { Page = Page.ViewCanvas });
             pages.Add(new PageModel { Page = Page.Mbc });
             pages.Add(new PageModel { Page = Page.Sbs });
+            pages.Add(new PageModel { Page = Page.ViewCalendar });
+            pages.Add(new PageModel { Page = Page.ViewAnimation });
+            pages.Add(new PageModel { Page = Page.ViewEasing });
+            pages.Add(new PageModel { Page = Page.MovieView });
         }
     }
 }

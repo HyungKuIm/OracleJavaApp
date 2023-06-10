@@ -19,6 +19,10 @@ namespace OracleJavaViews
         {
             containerRegistry.RegisterForNavigation<Views.ViewPanel>();
             containerRegistry.RegisterForNavigation<Views.ViewCanvas>();
+            containerRegistry.RegisterForNavigation<Views.ViewAnimation>();
+            containerRegistry.RegisterForNavigation<Views.ViewCalendar>();
+            containerRegistry.RegisterForNavigation<Views.ViewEasing>();
+            containerRegistry.RegisterForNavigation<Views.MovieView>();
         }
     }
 }

@@ -11,6 +11,11 @@ namespace OracleJavaModel
         ViewPanel,
         ViewCanvas,
         Mbc,
-        Sbs
+        Sbs,
+        ViewCalendar,
+        ViewAnimation,
+        ViewEasing,
+        MovieView
+
     }
 }

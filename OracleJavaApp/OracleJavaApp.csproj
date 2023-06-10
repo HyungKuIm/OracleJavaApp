@@ -6,6 +6,7 @@
   </PropertyGroup>
   <ItemGroup>
     <None Remove="Images\IMG_2072.jpg" />
+    <None Remove="Images\kang.jpg" />
   </ItemGroup>
   <ItemGroup>
     <PackageReference Include="Prism.Unity" Version="8.1.97" />
@@ -18,5 +19,19 @@
     <Resource Include="Images\IMG_2072.jpg">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Resource>
+    <Resource Include="Images\kang.jpg">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Resource>
+  </ItemGroup>
+  <ItemGroup>
+    <None Update="Videos\avengers.mp4">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Update="Videos\starwars.mp4">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Update="Videos\topgun.mp4">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
   </ItemGroup>
 </Project>
